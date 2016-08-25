@@ -20,6 +20,37 @@ namespace FileManagerPro.App
             InitializeComponent();
         }
 
+        void CheckDeleteFolder()
+        {
+            string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
+            string _ReadUserLogPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\LogPath.txt";
+            string _MertKaplanDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\";
+            if (!Directory.Exists(_DefaultLogFolder))
+            {
+                //Eğer LogDirectorysi yoksa log directorysini olustur.
+                Directory.CreateDirectory(_DefaultLogFolder);
+            }
+            else
+            {
+                
+            }
+            
+           if (!File.Exists(_ReadUserLogPath))
+           {
+             //Log directorysinin neresi olacağını söyleyen file oluştur yoksa.
+              File.WriteAllText(_MertKaplanDirectory+@"\LogPath.txt",_DefaultLogFolder);
+              string _ReadDeleteLogFilePathTxt=File.ReadAllText(_ReadUserLogPath).ToString();
+           }
+           else
+           {
+                //İçinde yazanı ata.
+
+             string _ReadDeleteLogFilePathTxt = File.ReadAllText(_ReadUserLogPath).ToString();
+                
+           }
+        }
+
+
         void CheckFolderCreated()
         {
             string _ProgramFilesPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -74,6 +105,36 @@ namespace FileManagerPro.App
             { }
         }
 
+        void InitializeAllGoingToDeleteFiles()
+        {
+            string _GoingToDeletePath = txtboxFolder.Text;
+            DateTime GetDeletingProcessDate = DateTime.Now.Date;
+            DateTime GetDeletingProcessTime = DateTime.Now;
+            string LogFileName = GetDeletingProcessDate.ToString("D") + " " + GetDeletingProcessTime.ToString("HH.mm.ss") + ".txt";
+            string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
+            File.WriteAllText(_DefaultLogFolder+LogFileName, "Deleting Process Created at " + DateTime.Now + Environment.NewLine);
+         
+
+            if (checkBoxShowSubFolderFiles.Checked == true)
+            {
+                string[] files = Directory.GetFiles(txtboxFolder.Text, "*" + txtboxFileType.Text, SearchOption.AllDirectories);
+                foreach (string _Path in files)
+                {
+                    FileInfo file = new FileInfo(_Path);
+                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: "+ file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: "+DateTime.Now+ Environment.NewLine);
+                }
+            }
+            else
+            {
+                string[] files = Directory.GetFiles(txtboxFolder.Text, "*" + txtboxFileType.Text);
+                foreach (string _Path in files)
+                {
+                    FileInfo file = new FileInfo(_Path);
+                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
+                }
+            }
+        }
+
         void InitializeAllFiles()
         {
             string _MertKaplanFileManagerFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder";
@@ -94,6 +155,7 @@ namespace FileManagerPro.App
         {
             //WindowState = FormWindowState.Maximized;
             CheckFolderCreated();
+            CheckDeleteFolder();
             InitializeAllFiles();
             DefaultClock();
             fillDetailsFromTextBox(getPathFromTextBox());
@@ -375,6 +437,8 @@ namespace FileManagerPro.App
         }
 
         
+  
+
         void GetUserEnteredParameters()
         {
             
@@ -385,14 +449,10 @@ namespace FileManagerPro.App
                 
             {
                 DateTime _UserSelectedDate = datePicker.Value;
-
-             
                 int _Hour = Convert.ToInt32(txtHourEntered.Text);
                 int _Time = Convert.ToInt32(txtMinEntered.Text);
                 TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
                 DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
-             
-
                 string UserEnteredFileType = "*"+ txtEnterFileTypeForList.Text;
                 if (checkBoxShowSubFolderFiles.Checked == false)
                 {
@@ -412,9 +472,10 @@ namespace FileManagerPro.App
                     listBoxParameters.Items.AddRange(files);
                 }
                 else
-                { string[] files = Directory.GetFiles(path, UserEnteredFileType, SearchOption.AllDirectories); 
-                foreach (string _Path in files)
                 {
+                    string[] files = Directory.GetFiles(path, UserEnteredFileType, SearchOption.AllDirectories); 
+                    foreach (string _Path in files)
+                    {
                     FileInfo file = new FileInfo(_Path);
                     if(file.CreationTime<_AfterTimeSpan)
                     {
@@ -424,7 +485,7 @@ namespace FileManagerPro.App
                     {
                         label12.Text = "Silinecek Dosya Bulunamadı.";
                     }
-                }
+                    }
                 listBoxParameters.Items.AddRange(files);
             }
             }
@@ -558,7 +619,7 @@ namespace FileManagerPro.App
 
         private void deleteBeforeThisDateBtn_Click(object sender, EventArgs e)
         {
-            
+            InitializeAllGoingToDeleteFiles();
             GetUserEnteredParameters();
             listBoxParameters.Items.Clear();
             listBoxDirectoryFiles.Items.Clear();
