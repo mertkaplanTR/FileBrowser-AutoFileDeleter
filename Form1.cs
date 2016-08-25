@@ -436,6 +436,7 @@ namespace FileManagerPro.App
             {
                 TimeSpan _TimeSpan = new TimeSpan(EnteredHour, EnteredMin, 0);
                 DateTime DeleteFileIfOldThenThis = EnteredDate.Date + _TimeSpan;
+
                 label12.Text = "Aşağıdaki gördüğünüz dosyaların\nKlasörü: "+ getPathFromTextBox() + " 'dedir\nUzantısı: " + enteredType + " olan tüm dosyalardır\n" + DeleteFileIfOldThenThis.ToString() + "'dan eskidir:";
                 string txtboxpath = getPathFromTextBox();
 
@@ -465,6 +466,12 @@ namespace FileManagerPro.App
         void ShowRequestedFilesAndSubFolderFiles(DateTime EnteredDate, int EnteredHour, int EnteredMin, string enteredType)
         {
             listBoxParameters.Items.Clear();
+            if (txtboxFileType.Text=="")
+            {
+                label1.Text = "Lutfen bir file tipi giriniz";
+            }
+            else
+            { 
             if (EnteredHour < 24 && EnteredMin < 60)
             {
                 TimeSpan _TimeSpan = new TimeSpan(EnteredHour, EnteredMin, 0);
@@ -493,6 +500,7 @@ namespace FileManagerPro.App
             {
                 label12.Text = "Girdiğiniz saati kontrol edin.";
             }
+        }
         }
 
 
