@@ -1,0 +1,35 @@
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\bin\Debug\FileManagerPro.App.exe.config
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\bin\Debug\FileManagerPro.App.exe
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\bin\Debug\FileManagerPro.App.pdb
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\bin\Debug\EntityFramework.dll
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\bin\Debug\EntityFramework.xml
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\obj\Debug\FileManagerPro.App.Form1.resources
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\obj\Debug\FileManagerPro.App.Form2.resources
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\obj\Debug\FileManagerPro.App.Properties.Resources.resources
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\obj\Debug\FileManagerPro.App.csproj.GenerateResource.Cache
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\obj\Debug\FileManagerPro.App.exe
+C:\Users\Unknown\Documents\visual studio 2015\Projects\WindowsFormsApplication1\FileManagerPro.App\obj\Debug\FileManagerPro.App.pdb
+C:\Users\Unknown\Desktop\FileManagerPro.App\bin\Debug\FileManagerPro.App.exe.config
+C:\Users\Unknown\Desktop\FileManagerPro.App\obj\Debug\FileManagerPro.App.exe
+C:\Users\Unknown\Desktop\FileManagerPro.App\obj\Debug\FileManagerPro.App.pdb
+C:\Users\Unknown\Desktop\FileManagerPro.App\bin\Debug\FileManagerPro.App.exe
+C:\Users\Unknown\Desktop\FileManagerPro.App\bin\Debug\FileManagerPro.App.pdb
+C:\Users\Unknown\Desktop\FileManagerPro.App\bin\Debug\EntityFramework.xml
+C:\Users\Unknown\Desktop\FileManagerPro.App\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Unknown\Desktop\FileManagerPro.App\obj\Debug\FileManagerPro.App.csprojResolveAssemblyReference.cache
+C:\Users\Unknown\Desktop\FileManagerPro.App\obj\Debug\FileManagerPro.App.Form1.resources
+C:\Users\Unknown\Desktop\FileManagerPro.App\obj\Debug\FileManagerPro.App.Form2.resources
+C:\Users\Unknown\Desktop\FileManagerPro.App\obj\Debug\FileManagerPro.App.Properties.Resources.resources
+C:\Users\Unknown\Desktop\FileManagerPro.App\obj\Debug\FileManagerPro.App.csproj.GenerateResource.Cache
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\bin\Debug\MK-Manager.exe.config
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\bin\Debug\MK-Manager.exe
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\bin\Debug\MK-Manager.pdb
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\FileManagerPro.App.csprojResolveAssemblyReference.cache
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\FileManagerPro.App.MertKaplanFileManager.resources
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\FileManagerPro.App.Form2.resources
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\FileManagerPro.App.Properties.Resources.resources
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\FileManagerPro.App.csproj.GenerateResource.Cache
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\MK-Manager.exe
+C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\MK-Manager.pdb
