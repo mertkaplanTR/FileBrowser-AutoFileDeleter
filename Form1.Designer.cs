@@ -63,11 +63,15 @@
             this.btnDeleteSelectedFolder = new System.Windows.Forms.Button();
             this.checkBoxShowSubFolderFiles = new System.Windows.Forms.CheckBox();
             this.linkLabelWeb = new System.Windows.Forms.LinkLabel();
+            this.btnZipListFiles = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.txtBoxDestination = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtMinEntered
             // 
-            this.txtMinEntered.Location = new System.Drawing.Point(206, 400);
+            this.txtMinEntered.Location = new System.Drawing.Point(152, 397);
             this.txtMinEntered.Margin = new System.Windows.Forms.Padding(4);
             this.txtMinEntered.Name = "txtMinEntered";
             this.txtMinEntered.Size = new System.Drawing.Size(30, 20);
@@ -76,7 +80,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(188, 403);
+            this.label7.Location = new System.Drawing.Point(141, 400);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(10, 13);
@@ -85,7 +89,7 @@
             // 
             // txtHourEntered
             // 
-            this.txtHourEntered.Location = new System.Drawing.Point(150, 400);
+            this.txtHourEntered.Location = new System.Drawing.Point(103, 397);
             this.txtHourEntered.Margin = new System.Windows.Forms.Padding(4);
             this.txtHourEntered.Name = "txtHourEntered";
             this.txtHourEntered.Size = new System.Drawing.Size(30, 20);
@@ -94,7 +98,7 @@
             // datePicker
             // 
             this.datePicker.AllowDrop = true;
-            this.datePicker.Location = new System.Drawing.Point(150, 428);
+            this.datePicker.Location = new System.Drawing.Point(103, 421);
             this.datePicker.Margin = new System.Windows.Forms.Padding(4);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(126, 20);
@@ -103,7 +107,7 @@
             // 
             // btnDeleteFilesUnderSubFolders
             // 
-            this.btnDeleteFilesUnderSubFolders.Location = new System.Drawing.Point(682, 279);
+            this.btnDeleteFilesUnderSubFolders.Location = new System.Drawing.Point(1164, 286);
             this.btnDeleteFilesUnderSubFolders.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteFilesUnderSubFolders.Name = "btnDeleteFilesUnderSubFolders";
             this.btnDeleteFilesUnderSubFolders.Size = new System.Drawing.Size(100, 52);
@@ -114,7 +118,7 @@
             // 
             // btnDeleteOnlyCurrentFolderFolders
             // 
-            this.btnDeleteOnlyCurrentFolderFolders.Location = new System.Drawing.Point(682, 187);
+            this.btnDeleteOnlyCurrentFolderFolders.Location = new System.Drawing.Point(1164, 181);
             this.btnDeleteOnlyCurrentFolderFolders.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteOnlyCurrentFolderFolders.Name = "btnDeleteOnlyCurrentFolderFolders";
             this.btnDeleteOnlyCurrentFolderFolders.Size = new System.Drawing.Size(100, 36);
@@ -125,10 +129,10 @@
             // 
             // btnDeleteOnlyFolderFiles
             // 
-            this.btnDeleteOnlyFolderFiles.Location = new System.Drawing.Point(682, 231);
+            this.btnDeleteOnlyFolderFiles.Location = new System.Drawing.Point(1164, 225);
             this.btnDeleteOnlyFolderFiles.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteOnlyFolderFiles.Name = "btnDeleteOnlyFolderFiles";
-            this.btnDeleteOnlyFolderFiles.Size = new System.Drawing.Size(100, 40);
+            this.btnDeleteOnlyFolderFiles.Size = new System.Drawing.Size(100, 53);
             this.btnDeleteOnlyFolderFiles.TabIndex = 47;
             this.btnDeleteOnlyFolderFiles.Text = "Bu Dizin İçindeki Dosyaları Sil";
             this.btnDeleteOnlyFolderFiles.UseVisualStyleBackColor = true;
@@ -136,7 +140,7 @@
             // 
             // btnDeleteAllSubCategories
             // 
-            this.btnDeleteAllSubCategories.Location = new System.Drawing.Point(682, 144);
+            this.btnDeleteAllSubCategories.Location = new System.Drawing.Point(1164, 138);
             this.btnDeleteAllSubCategories.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteAllSubCategories.Name = "btnDeleteAllSubCategories";
             this.btnDeleteAllSubCategories.Size = new System.Drawing.Size(100, 35);
@@ -147,7 +151,7 @@
             // 
             // btnDeleteSelectedItem
             // 
-            this.btnDeleteSelectedItem.Location = new System.Drawing.Point(682, 45);
+            this.btnDeleteSelectedItem.Location = new System.Drawing.Point(1164, 48);
             this.btnDeleteSelectedItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteSelectedItem.Name = "btnDeleteSelectedItem";
             this.btnDeleteSelectedItem.Size = new System.Drawing.Size(100, 41);
@@ -158,28 +162,28 @@
             // 
             // txtboxFolder
             // 
-            this.txtboxFolder.Location = new System.Drawing.Point(152, 42);
+            this.txtboxFolder.Location = new System.Drawing.Point(103, 48);
             this.txtboxFolder.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFolder.Name = "txtboxFolder";
-            this.txtboxFolder.Size = new System.Drawing.Size(460, 20);
+            this.txtboxFolder.Size = new System.Drawing.Size(984, 20);
             this.txtboxFolder.TabIndex = 31;
             // 
             // listBoxDirectoryFiles
             // 
             this.listBoxDirectoryFiles.FormattingEnabled = true;
-            this.listBoxDirectoryFiles.Location = new System.Drawing.Point(150, 181);
+            this.listBoxDirectoryFiles.Location = new System.Drawing.Point(103, 178);
             this.listBoxDirectoryFiles.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxDirectoryFiles.Name = "listBoxDirectoryFiles";
-            this.listBoxDirectoryFiles.Size = new System.Drawing.Size(460, 160);
+            this.listBoxDirectoryFiles.Size = new System.Drawing.Size(983, 160);
             this.listBoxDirectoryFiles.TabIndex = 43;
             this.listBoxDirectoryFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxDirectoryFiles_SelectedIndexChanged);
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(618, 42);
+            this.btnShow.Location = new System.Drawing.Point(1089, 48);
             this.btnShow.Margin = new System.Windows.Forms.Padding(4);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(56, 299);
+            this.btnShow.Size = new System.Drawing.Size(71, 290);
             this.btnShow.TabIndex = 42;
             this.btnShow.Text = "Göster";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -187,32 +191,32 @@
             // 
             // txtboxModifiedDate
             // 
-            this.txtboxModifiedDate.Location = new System.Drawing.Point(151, 153);
+            this.txtboxModifiedDate.Location = new System.Drawing.Point(103, 153);
             this.txtboxModifiedDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxModifiedDate.Name = "txtboxModifiedDate";
-            this.txtboxModifiedDate.Size = new System.Drawing.Size(460, 20);
+            this.txtboxModifiedDate.Size = new System.Drawing.Size(983, 20);
             this.txtboxModifiedDate.TabIndex = 41;
             // 
             // txtboxCreatedDate
             // 
-            this.txtboxCreatedDate.Location = new System.Drawing.Point(152, 125);
+            this.txtboxCreatedDate.Location = new System.Drawing.Point(103, 125);
             this.txtboxCreatedDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxCreatedDate.Name = "txtboxCreatedDate";
-            this.txtboxCreatedDate.Size = new System.Drawing.Size(460, 20);
+            this.txtboxCreatedDate.Size = new System.Drawing.Size(984, 20);
             this.txtboxCreatedDate.TabIndex = 40;
             // 
             // txtboxFileType
             // 
-            this.txtboxFileType.Location = new System.Drawing.Point(152, 97);
+            this.txtboxFileType.Location = new System.Drawing.Point(105, 101);
             this.txtboxFileType.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFileType.Name = "txtboxFileType";
-            this.txtboxFileType.Size = new System.Drawing.Size(460, 20);
+            this.txtboxFileType.Size = new System.Drawing.Size(982, 20);
             this.txtboxFileType.TabIndex = 38;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(56, 156);
+            this.label6.Location = new System.Drawing.Point(8, 156);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 13);
@@ -222,7 +226,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(54, 128);
+            this.label5.Location = new System.Drawing.Point(13, 125);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 13);
@@ -232,7 +236,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(113, 45);
+            this.label4.Location = new System.Drawing.Point(67, 55);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
@@ -242,7 +246,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(88, 73);
+            this.label2.Location = new System.Drawing.Point(42, 79);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
@@ -254,7 +258,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(147, 9);
+            this.label1.Location = new System.Drawing.Point(98, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 27);
@@ -263,16 +267,16 @@
             // 
             // txtboxFileName
             // 
-            this.txtboxFileName.Location = new System.Drawing.Point(152, 70);
+            this.txtboxFileName.Location = new System.Drawing.Point(103, 76);
             this.txtboxFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxFileName.Name = "txtboxFileName";
-            this.txtboxFileName.Size = new System.Drawing.Size(460, 20);
+            this.txtboxFileName.Size = new System.Drawing.Size(983, 20);
             this.txtboxFileName.TabIndex = 39;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 100);
+            this.label3.Location = new System.Drawing.Point(42, 104);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
@@ -283,7 +287,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label8.Location = new System.Drawing.Point(148, 348);
+            this.label8.Location = new System.Drawing.Point(99, 348);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 20);
@@ -292,10 +296,10 @@
             // 
             // deleteBeforeThisDateBtn
             // 
-            this.deleteBeforeThisDateBtn.Location = new System.Drawing.Point(618, 456);
+            this.deleteBeforeThisDateBtn.Location = new System.Drawing.Point(103, 671);
             this.deleteBeforeThisDateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.deleteBeforeThisDateBtn.Name = "deleteBeforeThisDateBtn";
-            this.deleteBeforeThisDateBtn.Size = new System.Drawing.Size(65, 212);
+            this.deleteBeforeThisDateBtn.Size = new System.Drawing.Size(92, 40);
             this.deleteBeforeThisDateBtn.TabIndex = 56;
             this.deleteBeforeThisDateBtn.Text = "Listelenen Dosyaları Sil";
             this.deleteBeforeThisDateBtn.UseVisualStyleBackColor = true;
@@ -304,15 +308,15 @@
             // listBoxParameters
             // 
             this.listBoxParameters.FormattingEnabled = true;
-            this.listBoxParameters.Location = new System.Drawing.Point(150, 456);
+            this.listBoxParameters.Location = new System.Drawing.Point(103, 451);
             this.listBoxParameters.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxParameters.Name = "listBoxParameters";
-            this.listBoxParameters.Size = new System.Drawing.Size(460, 212);
+            this.listBoxParameters.Size = new System.Drawing.Size(594, 212);
             this.listBoxParameters.TabIndex = 57;
             // 
             // txtEnterFileTypeForList
             // 
-            this.txtEnterFileTypeForList.Location = new System.Drawing.Point(150, 372);
+            this.txtEnterFileTypeForList.Location = new System.Drawing.Point(103, 372);
             this.txtEnterFileTypeForList.Margin = new System.Windows.Forms.Padding(4);
             this.txtEnterFileTypeForList.Name = "txtEnterFileTypeForList";
             this.txtEnterFileTypeForList.Size = new System.Drawing.Size(126, 20);
@@ -321,17 +325,17 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 434);
+            this.label9.Location = new System.Drawing.Point(66, 427);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 13);
+            this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 59;
-            this.label9.Text = "Karşılaştırılacak Tarih:";
+            this.label9.Text = "Tarih:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(77, 403);
+            this.label10.Location = new System.Drawing.Point(31, 400);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(69, 13);
@@ -341,7 +345,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(100, 375);
+            this.label11.Location = new System.Drawing.Point(54, 375);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 13);
@@ -353,7 +357,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label12.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label12.Location = new System.Drawing.Point(291, 403);
+            this.label12.Location = new System.Drawing.Point(237, 392);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 14);
@@ -362,9 +366,9 @@
             // 
             // btnBackToFolder
             // 
-            this.btnBackToFolder.Location = new System.Drawing.Point(523, 353);
+            this.btnBackToFolder.Location = new System.Drawing.Point(1024, 345);
             this.btnBackToFolder.Name = "btnBackToFolder";
-            this.btnBackToFolder.Size = new System.Drawing.Size(151, 39);
+            this.btnBackToFolder.Size = new System.Drawing.Size(136, 42);
             this.btnBackToFolder.TabIndex = 63;
             this.btnBackToFolder.Text = "Geri";
             this.btnBackToFolder.UseVisualStyleBackColor = true;
@@ -372,7 +376,7 @@
             // 
             // btnDeleteSelectedFolder
             // 
-            this.btnDeleteSelectedFolder.Location = new System.Drawing.Point(682, 96);
+            this.btnDeleteSelectedFolder.Location = new System.Drawing.Point(1164, 90);
             this.btnDeleteSelectedFolder.Name = "btnDeleteSelectedFolder";
             this.btnDeleteSelectedFolder.Size = new System.Drawing.Size(100, 41);
             this.btnDeleteSelectedFolder.TabIndex = 64;
@@ -383,7 +387,7 @@
             // checkBoxShowSubFolderFiles
             // 
             this.checkBoxShowSubFolderFiles.AutoSize = true;
-            this.checkBoxShowSubFolderFiles.Location = new System.Drawing.Point(294, 370);
+            this.checkBoxShowSubFolderFiles.Location = new System.Drawing.Point(236, 372);
             this.checkBoxShowSubFolderFiles.Name = "checkBoxShowSubFolderFiles";
             this.checkBoxShowSubFolderFiles.Size = new System.Drawing.Size(193, 17);
             this.checkBoxShowSubFolderFiles.TabIndex = 65;
@@ -393,7 +397,7 @@
             // linkLabelWeb
             // 
             this.linkLabelWeb.AutoSize = true;
-            this.linkLabelWeb.Location = new System.Drawing.Point(778, 655);
+            this.linkLabelWeb.Location = new System.Drawing.Point(1183, 685);
             this.linkLabelWeb.Name = "linkLabelWeb";
             this.linkLabelWeb.Size = new System.Drawing.Size(82, 13);
             this.linkLabelWeb.TabIndex = 66;
@@ -401,12 +405,53 @@
             this.linkLabelWeb.Text = "MertKaplanBlog";
             this.linkLabelWeb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelWeb_LinkClicked);
             // 
+            // btnZipListFiles
+            // 
+            this.btnZipListFiles.Location = new System.Drawing.Point(203, 671);
+            this.btnZipListFiles.Margin = new System.Windows.Forms.Padding(4);
+            this.btnZipListFiles.Name = "btnZipListFiles";
+            this.btnZipListFiles.Size = new System.Drawing.Size(92, 40);
+            this.btnZipListFiles.TabIndex = 67;
+            this.btnZipListFiles.Text = "Listelenen Dosyaları Ziple";
+            this.btnZipListFiles.UseVisualStyleBackColor = true;
+            this.btnZipListFiles.Click += new System.EventHandler(this.btnZipListFiles_Click);
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(704, 451);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(561, 212);
+            this.listBox2.TabIndex = 69;
+            // 
+            // txtBoxDestination
+            // 
+            this.txtBoxDestination.Location = new System.Drawing.Point(773, 427);
+            this.txtBoxDestination.Name = "txtBoxDestination";
+            this.txtBoxDestination.Size = new System.Drawing.Size(117, 20);
+            this.txtBoxDestination.TabIndex = 70;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(704, 430);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.TabIndex = 71;
+            this.label13.Text = "Destination:";
+            // 
             // MertKaplanFileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(872, 676);
+            this.ClientSize = new System.Drawing.Size(1361, 681);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txtBoxDestination);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.btnZipListFiles);
             this.Controls.Add(this.linkLabelWeb);
             this.Controls.Add(this.checkBoxShowSubFolderFiles);
             this.Controls.Add(this.btnDeleteSelectedFolder);
@@ -446,8 +491,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1000, 720);
             this.Name = "MertKaplanFileManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MK-Manager";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -490,6 +538,10 @@
         private System.Windows.Forms.Button btnDeleteSelectedFolder;
         private System.Windows.Forms.CheckBox checkBoxShowSubFolderFiles;
         private System.Windows.Forms.LinkLabel linkLabelWeb;
+        private System.Windows.Forms.Button btnZipListFiles;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox txtBoxDestination;
+        private System.Windows.Forms.Label label13;
     }
 }
 

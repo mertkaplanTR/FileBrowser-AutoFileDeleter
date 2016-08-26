@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.IO.Compression;
 using System.Threading;
 
 namespace FileManagerPro.App
@@ -16,12 +17,14 @@ namespace FileManagerPro.App
     {
         public MertKaplanFileManager()
         {
-            StartPosition = FormStartPosition.CenterScreen;
+           
+            
             InitializeComponent();
         }
 
         void CheckDeleteFolder()
         {
+           
             string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
             string _ReadUserLogPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\LogPath.txt";
             string _MertKaplanDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\";
@@ -39,15 +42,14 @@ namespace FileManagerPro.App
            {
              //Log directorysinin neresi olacağını söyleyen file oluştur yoksa.
               File.WriteAllText(_MertKaplanDirectory+@"\LogPath.txt",_DefaultLogFolder);
-              string _ReadDeleteLogFilePathTxt=File.ReadAllText(_ReadUserLogPath).ToString();
+              //string _ReadDeleteLogFilePathTxt=File.ReadAllText(_ReadUserLogPath).ToString();
            }
            else
            {
-                //İçinde yazanı ata.
-
-             string _ReadDeleteLogFilePathTxt = File.ReadAllText(_ReadUserLogPath).ToString();
-                
+             //İçinde yazanı ata.
+            // string _ReadDeleteLogFilePathTxt = File.ReadAllText(_ReadUserLogPath).ToString();
            }
+          ///User'in girilen path'e göre klasör oluşturması eklenecek...
         }
 
 
@@ -153,7 +155,11 @@ namespace FileManagerPro.App
 
     private void Form1_Load(object sender, EventArgs e)
         {
-            //WindowState = FormWindowState.Maximized;
+            
+           
+          
+            MinimizeBox = true;
+            MaximizeBox = true;
             CheckFolderCreated();
             CheckDeleteFolder();
             InitializeAllFiles();
@@ -436,9 +442,6 @@ namespace FileManagerPro.App
             return true;
         }
 
-        
-  
-
         void GetUserEnteredParameters()
         {
             
@@ -631,6 +634,11 @@ namespace FileManagerPro.App
         private void linkLabelWeb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://mertkaplanblog.wordpress.com");
+        }
+
+        private void btnZipListFiles_Click(object sender, EventArgs e)
+        {
+
         }
 
         ///TEK ZAMANA INDIRGE SU ANDA DEFAULTU DATETIMENOW YAP 

@@ -16,7 +16,8 @@ namespace FileManagerPro.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MertKaplanFileManager());
+            //Application.Run(new MertKaplanFileManager());
+            Application.Run(new Form2());
         }
     }
 }
