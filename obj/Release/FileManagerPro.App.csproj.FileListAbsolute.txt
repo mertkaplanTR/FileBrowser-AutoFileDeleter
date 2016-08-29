@@ -33,8 +33,6 @@ C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Release\
 C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Release\FileManagerPro.App.Properties.Resources.resources
 C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Release\FileManagerPro.App.csproj.GenerateResource.Cache
 C:\Users\Unknown\Desktop\onlyexe\bin\Release\MK-Manager.exe.config
-C:\Users\Unknown\Desktop\onlyexe\obj\Release\MK-Manager.exe
-C:\Users\Unknown\Desktop\onlyexe\obj\Release\MK-Manager.pdb
 C:\Users\Unknown\Desktop\onlyexe\bin\Release\MK-Manager.exe
 C:\Users\Unknown\Desktop\onlyexe\bin\Release\MK-Manager.pdb
 C:\Users\Unknown\Desktop\onlyexe\obj\Release\FileManagerPro.App.csprojResolveAssemblyReference.cache
@@ -42,3 +40,5 @@ C:\Users\Unknown\Desktop\onlyexe\obj\Release\FileManagerPro.App.MertKaplanFileMa
 C:\Users\Unknown\Desktop\onlyexe\obj\Release\FileManagerPro.App.Form2.resources
 C:\Users\Unknown\Desktop\onlyexe\obj\Release\FileManagerPro.App.Properties.Resources.resources
 C:\Users\Unknown\Desktop\onlyexe\obj\Release\FileManagerPro.App.csproj.GenerateResource.Cache
+C:\Users\Unknown\Desktop\onlyexe\obj\Release\MK-Manager.exe
+C:\Users\Unknown\Desktop\onlyexe\obj\Release\MK-Manager.pdb

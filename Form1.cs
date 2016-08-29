@@ -530,7 +530,7 @@ namespace FileManagerPro.App
         void ShowRequestedFilesAndSubFolderFiles(DateTime EnteredDate, int EnteredHour, int EnteredMin, string enteredType)
         {
             listBoxParameters.Items.Clear();
-            if (txtboxFileType.Text=="")
+            if (txtboxFileType.Text==null)
             {
                 label1.Text = "Lutfen bir file tipi giriniz";
             }
@@ -587,11 +587,13 @@ namespace FileManagerPro.App
                 }
                 else
                 {
+                    if(checkBoxShowSubFolderFiles.Checked==true)
+                    { 
                     if (IsNumeric(txtHourEntered.Text) == true && IsNumeric(txtMinEntered.Text) == true)
                         ShowRequestedFilesAndSubFolderFiles(UserSelectedDate, Convert.ToInt32(txtHourEntered.Text), Convert.ToInt32(txtMinEntered.Text), txtEnterFileTypeForList.Text);
                     else
                         label1.Text = "Saate karakter girdiniz. Lütfen nümerik bir değer girin.";
-                    
+                    }
                 }
             }
         }
@@ -623,6 +625,7 @@ namespace FileManagerPro.App
         private void deleteBeforeThisDateBtn_Click(object sender, EventArgs e)
         {
             InitializeAllGoingToDeleteFiles();
+            ////delete func yaz yukarı
             GetUserEnteredParameters();
             listBoxParameters.Items.Clear();
             listBoxDirectoryFiles.Items.Clear();
@@ -636,13 +639,104 @@ namespace FileManagerPro.App
             System.Diagnostics.Process.Start("https://mertkaplanblog.wordpress.com");
         }
 
-        private void btnZipListFiles_Click(object sender, EventArgs e)
+        private void btnCompressListedFiles_Click(object sender, EventArgs e)
         {
-
+            DateTime _UserSelectedDate = datePicker.Value;
+            int _Hour = Convert.ToInt32(txtHourEntered.Text);
+            int _Time = Convert.ToInt32(txtMinEntered.Text);
+            TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
+            DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
+            string UserEnteredFileType = "*" + txtEnterFileTypeForList.Text;
+            if (txtBoxDestination.Text==null)
+            {
+                label1.Text = "Lütfen bir destination path'i giriniz!";
+            }
+            else
+                { 
+                   if(Directory.Exists(txtBoxDestination.Text)==false)
+                    {
+                    Directory.CreateDirectory(txtBoxDestination.Text);
+                    }
+                   else
+                     { 
+                        if (checkBoxShowSubFolderFiles.Checked==true)
+                        {
+                          string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType, SearchOption.AllDirectories);
+                          foreach(string _Path in files)
+                            {
+                            FileInfo file = new FileInfo(_Path);
+                             if (file.CreationTime < _AfterTimeSpan)
+                             { file.CopyTo(txtBoxDestination.Text + @"\" + file.Name); }
+                             else { }
+                            }
+                        }
+                        else
+                        {
+                          string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType);
+                          foreach(string _Path in files)
+                          {
+                              FileInfo file = new FileInfo(_Path);
+                              if(file.CreationTime<_AfterTimeSpan)
+                               {
+                                    file.CopyTo(txtBoxDestination.Text + @"\" + file.Name);
+                               }
+                             else
+                                {
+                           }
+                       }
+                    }
+                }
+            }
         }
+        private void btnCompressAndDeleteListedFiles_Click(object sender, EventArgs e)
+        {
+            if (checkBoxShowSubFolderFiles.Checked == true)
+            {
+                label1.Text = "Lutfen bir path giriniz.";
+            }
+            else
+            {
+                if(Directory.Exists(txtBoxDestination.Text))
+                {
+                    Directory.CreateDirectory(txtBoxDestination.Text);
 
-        ///TEK ZAMANA INDIRGE SU ANDA DEFAULTU DATETIMENOW YAP 
-        ///SEARCH ISLEMI TEK LISTBOXDA OLSUN
-
+                }
+                else
+                {
+                    string _UserEntered = "*" + txtboxFileType.Text;
+                    DateTime _UserSelectedDate = datePicker.Value;
+                    int _Hour = Convert.ToInt32(txtHourEntered.Text);
+                    int _Time = Convert.ToInt32(txtMinEntered.Text);
+                    TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
+                    DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
+                    if (checkBoxShowSubFolderFiles.Checked==true)
+                    {
+                        
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, _UserEntered, SearchOption.AllDirectories);
+                        foreach(string _Path in files)
+                        {
+                            FileInfo file = new FileInfo(_Path);
+                            if(file.CreationTime<_AfterTimeSpan)
+                            {
+                                file.MoveTo(txtBoxDestination.Text + @"\" + file.Name);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, _UserEntered);
+                        foreach(string _Path in files)
+                        {
+                            FileInfo file = new FileInfo(_Path);
+                            if(file.CreationTime<_AfterTimeSpan)
+                            {
+                                file.MoveTo(txtboxCreatedDate.Text + @"\" + file.Name);
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
     }
 }

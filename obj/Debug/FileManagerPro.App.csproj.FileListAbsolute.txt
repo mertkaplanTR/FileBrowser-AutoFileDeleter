@@ -33,3 +33,13 @@ C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\Fi
 C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\FileManagerPro.App.csproj.GenerateResource.Cache
 C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\MK-Manager.exe
 C:\Users\Unknown\Desktop\MertKaplanFileManager-ONLYEXE-Final-master\obj\Debug\MK-Manager.pdb
+C:\Users\Unknown\Desktop\onlyexe\bin\Debug\MK-Manager.exe.config
+C:\Users\Unknown\Desktop\onlyexe\obj\Debug\MK-Manager.exe
+C:\Users\Unknown\Desktop\onlyexe\obj\Debug\MK-Manager.pdb
+C:\Users\Unknown\Desktop\onlyexe\bin\Debug\MK-Manager.exe
+C:\Users\Unknown\Desktop\onlyexe\bin\Debug\MK-Manager.pdb
+C:\Users\Unknown\Desktop\onlyexe\obj\Debug\FileManagerPro.App.MertKaplanFileManager.resources
+C:\Users\Unknown\Desktop\onlyexe\obj\Debug\FileManagerPro.App.Form2.resources
+C:\Users\Unknown\Desktop\onlyexe\obj\Debug\FileManagerPro.App.Properties.Resources.resources
+C:\Users\Unknown\Desktop\onlyexe\obj\Debug\FileManagerPro.App.csproj.GenerateResource.Cache
+C:\Users\Unknown\Desktop\onlyexe\obj\Debug\FileManagerPro.App.csprojResolveAssemblyReference.cache
