@@ -34,8 +34,8 @@ namespace FileManagerPro.App
         private void Form2_Load(object sender, EventArgs e)
         {
             label1.Text = "İş kontrol ediliyor";
-            txtBoxSourceFolder.Text = @"C:\Users\Unknown\Desktop\";
-            txtBoxDestinationFolder.Text=@"C:\Users\Unknown\Desktop\temp\";
+            txtBoxSourceFolder.Text = @"C:\Users\Unknown\Desktop\testfolder\";
+            txtBoxDestinationFolder.Text= @"C:\Users\Unknown\Desktop\testfolder\tasinacakfolder\";
             checkEverySecond();
             CheckFolderCreated();
 
@@ -72,9 +72,6 @@ namespace FileManagerPro.App
 
         }
 
-
-
-
         void checkEverySecond()
         {
             timer1.Interval = 1000;
@@ -82,8 +79,6 @@ namespace FileManagerPro.App
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
         }
-       
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -97,8 +92,6 @@ namespace FileManagerPro.App
             else
                 label1.Text = "Daha zamanı var";
         }
-
-   
 
         private void InitializeComponent()
         {
@@ -210,7 +203,8 @@ namespace FileManagerPro.App
                 //string filename = file.Name;
                 //string destination = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\temp\";
                 //string fullpath = filename + destination;
-                file.MoveTo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\temp\"+ file.Name);
+                // file.MoveTo(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\temp\"+ file.Name);
+                file.MoveTo(txtBoxDestinationFolder.Text + file.Name);
             }
 
             // Directory.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\temp");
