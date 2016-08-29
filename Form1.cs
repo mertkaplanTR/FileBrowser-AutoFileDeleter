@@ -638,7 +638,7 @@ namespace FileManagerPro.App
             System.Diagnostics.Process.Start("https://mertkaplanblog.wordpress.com");
         }
 
-        private void btnCompressListedFiles_Click(object sender, EventArgs e)
+        private void btnCopyListedFiles_Click(object sender, EventArgs e)
         {
             DateTime _UserSelectedDate = datePicker.Value;
             int _Hour = Convert.ToInt32(txtHourEntered.Text);
@@ -687,7 +687,7 @@ namespace FileManagerPro.App
                 }
             }
         }
-        private void btnCompressAndDeleteListedFiles_Click(object sender, EventArgs e)
+        private void btnMoveListedFiles_Click(object sender, EventArgs e)
         {
             if (txtBoxDestination.Text == null)
             {

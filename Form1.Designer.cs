@@ -66,8 +66,8 @@
             this.listBoxDestinationExplorer = new System.Windows.Forms.ListBox();
             this.txtBoxDestination = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnCompressAndDeleteListedFiles = new System.Windows.Forms.Button();
-            this.btnCompressListedFiles = new System.Windows.Forms.Button();
+            this.btnMoveListedFiles = new System.Windows.Forms.Button();
+            this.btnCopyListedFiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtMinEntered
@@ -440,25 +440,25 @@
             this.label13.TabIndex = 71;
             this.label13.Text = "Destination:";
             // 
-            // btnCompressAndDeleteListedFiles
+            // btnMoveListedFiles
             // 
-            this.btnCompressAndDeleteListedFiles.Location = new System.Drawing.Point(837, 666);
-            this.btnCompressAndDeleteListedFiles.Name = "btnCompressAndDeleteListedFiles";
-            this.btnCompressAndDeleteListedFiles.Size = new System.Drawing.Size(139, 40);
-            this.btnCompressAndDeleteListedFiles.TabIndex = 72;
-            this.btnCompressAndDeleteListedFiles.Text = "Listelenenleri Sıkıştır ve Sil";
-            this.btnCompressAndDeleteListedFiles.UseVisualStyleBackColor = true;
-            this.btnCompressAndDeleteListedFiles.Click += new System.EventHandler(this.btnCompressAndDeleteListedFiles_Click);
+            this.btnMoveListedFiles.Location = new System.Drawing.Point(354, 667);
+            this.btnMoveListedFiles.Name = "btnMoveListedFiles";
+            this.btnMoveListedFiles.Size = new System.Drawing.Size(109, 39);
+            this.btnMoveListedFiles.TabIndex = 72;
+            this.btnMoveListedFiles.Text = "Move Listed Files";
+            this.btnMoveListedFiles.UseVisualStyleBackColor = true;
+            this.btnMoveListedFiles.Click += new System.EventHandler(this.btnMoveListedFiles_Click);
             // 
-            // btnCompressListedFiles
+            // btnCopyListedFiles
             // 
-            this.btnCompressListedFiles.Location = new System.Drawing.Point(704, 666);
-            this.btnCompressListedFiles.Name = "btnCompressListedFiles";
-            this.btnCompressListedFiles.Size = new System.Drawing.Size(127, 53);
-            this.btnCompressListedFiles.TabIndex = 73;
-            this.btnCompressListedFiles.Text = "Listelilenleri Destinationa Taşı ve Sıkıştır ";
-            this.btnCompressListedFiles.UseVisualStyleBackColor = true;
-            this.btnCompressListedFiles.Click += new System.EventHandler(this.btnCompressListedFiles_Click);
+            this.btnCopyListedFiles.Location = new System.Drawing.Point(236, 667);
+            this.btnCopyListedFiles.Name = "btnCopyListedFiles";
+            this.btnCopyListedFiles.Size = new System.Drawing.Size(112, 38);
+            this.btnCopyListedFiles.TabIndex = 73;
+            this.btnCopyListedFiles.Text = "Copy Listed Files";
+            this.btnCopyListedFiles.UseVisualStyleBackColor = true;
+            this.btnCopyListedFiles.Click += new System.EventHandler(this.btnCopyListedFiles_Click);
             // 
             // MertKaplanFileManager
             // 
@@ -468,8 +468,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1354, 721);
-            this.Controls.Add(this.btnCompressListedFiles);
-            this.Controls.Add(this.btnCompressAndDeleteListedFiles);
+            this.Controls.Add(this.btnCopyListedFiles);
+            this.Controls.Add(this.btnMoveListedFiles);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtBoxDestination);
             this.Controls.Add(this.listBoxDestinationExplorer);
@@ -562,8 +562,8 @@
         private System.Windows.Forms.ListBox listBoxDestinationExplorer;
         private System.Windows.Forms.TextBox txtBoxDestination;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnCompressAndDeleteListedFiles;
-        private System.Windows.Forms.Button btnCompressListedFiles;
+        private System.Windows.Forms.Button btnMoveListedFiles;
+        private System.Windows.Forms.Button btnCopyListedFiles;
     }
 }
 
