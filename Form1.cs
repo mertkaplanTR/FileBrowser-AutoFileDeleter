@@ -155,9 +155,8 @@ namespace FileManagerPro.App
 
     private void Form1_Load(object sender, EventArgs e)
         {
-            
-           
-          
+            txtEnterFileTypeForList.Text = ".txt";
+            txtBoxDestination.Text = @"C:\Users\Unknown\Desktop\testfolder\tasinacakfolder\";
             MinimizeBox = true;
             MaximizeBox = true;
             CheckFolderCreated();
@@ -690,47 +689,53 @@ namespace FileManagerPro.App
         }
         private void btnCompressAndDeleteListedFiles_Click(object sender, EventArgs e)
         {
-            if (checkBoxShowSubFolderFiles.Checked == true)
+            if (txtBoxDestination.Text == null)
             {
                 label1.Text = "Lutfen bir path giriniz.";
             }
             else
             {
-                if(Directory.Exists(txtBoxDestination.Text))
+                if(!Directory.Exists(txtBoxDestination.Text))
                 {
                     Directory.CreateDirectory(txtBoxDestination.Text);
 
                 }
                 else
                 {
-                    string _UserEntered = "*" + txtboxFileType.Text;
+             
                     DateTime _UserSelectedDate = datePicker.Value;
                     int _Hour = Convert.ToInt32(txtHourEntered.Text);
                     int _Time = Convert.ToInt32(txtMinEntered.Text);
                     TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
                     DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
+                    string UserEnteredFileType = "*" + txtEnterFileTypeForList.Text;
                     if (checkBoxShowSubFolderFiles.Checked==true)
                     {
-                        
-                        string[] files = Directory.GetFiles(txtboxFolder.Text, _UserEntered, SearchOption.AllDirectories);
-                        foreach(string _Path in files)
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType,SearchOption.AllDirectories);
+                        foreach (string _Path in files)
                         {
                             FileInfo file = new FileInfo(_Path);
-                            if(file.CreationTime<_AfterTimeSpan)
+                            if (file.CreationTime < _AfterTimeSpan)
                             {
                                 file.MoveTo(txtBoxDestination.Text + @"\" + file.Name);
+                            }
+                            else
+                            {
                             }
                         }
                     }
                     else
                     {
-                        string[] files = Directory.GetFiles(txtboxFolder.Text, _UserEntered);
-                        foreach(string _Path in files)
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType);
+                        foreach (string _Path in files)
                         {
                             FileInfo file = new FileInfo(_Path);
-                            if(file.CreationTime<_AfterTimeSpan)
+                            if (file.CreationTime < _AfterTimeSpan)
                             {
-                                file.MoveTo(txtboxCreatedDate.Text + @"\" + file.Name);
+                                file.MoveTo(txtBoxDestination.Text + @"\" + file.Name);
+                            }
+                            else
+                            {
                             }
                         }
                     }
