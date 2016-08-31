@@ -195,6 +195,14 @@ namespace FileManagerPro.App
         private void button1_Click(object sender, EventArgs e)
         {
             // ZipFile.CreateFromDirectory(textBox1.Text, textBox2.Text + @"\DEMO.zip");
+
+
+
+
+
+
+
+
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+@"\temp\");
             string[] files = Directory.GetFiles(txtBoxSourceFolder.Text, "*" + txtFileSearchWhatKindOfTypeWillMove.Text);
             foreach (string _Path in files)

@@ -17,14 +17,14 @@ namespace FileManagerPro.App
     {
         public MertKaplanFileManager()
         {
-           
-            
+
+
             InitializeComponent();
         }
 
         void CheckDeleteFolder()
         {
-           
+
             string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
             string _ReadUserLogPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\LogPath.txt";
             string _MertKaplanDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\";
@@ -35,21 +35,21 @@ namespace FileManagerPro.App
             }
             else
             {
-                
+
             }
-            
-           if (!File.Exists(_ReadUserLogPath))
-           {
-             //Log directorysinin neresi olacağını söyleyen file oluştur yoksa.
-              File.WriteAllText(_MertKaplanDirectory+@"\LogPath.txt",_DefaultLogFolder);
-              //string _ReadDeleteLogFilePathTxt=File.ReadAllText(_ReadUserLogPath).ToString();
-           }
-           else
-           {
-             //İçinde yazanı ata.
-            // string _ReadDeleteLogFilePathTxt = File.ReadAllText(_ReadUserLogPath).ToString();
-           }
-          ///User'in girilen path'e göre klasör oluşturması eklenecek...
+
+            if (!File.Exists(_ReadUserLogPath))
+            {
+                //Log directorysinin neresi olacağını söyleyen file oluştur yoksa.
+                File.WriteAllText(_MertKaplanDirectory + @"\LogPath.txt", _DefaultLogFolder);
+                //string _ReadDeleteLogFilePathTxt=File.ReadAllText(_ReadUserLogPath).ToString();
+            }
+            else
+            {
+                //İçinde yazanı ata.
+                // string _ReadDeleteLogFilePathTxt = File.ReadAllText(_ReadUserLogPath).ToString();
+            }
+            ///User'in girilen path'e göre klasör oluşturması eklenecek...
         }
 
 
@@ -76,8 +76,8 @@ namespace FileManagerPro.App
                 txtboxFolder.Text = File.ReadAllText(_PathText).ToString();
                 txtboxFolder.Text = Path.GetDirectoryName(_PathText).ToString();
             }
-            else 
-            if(File.Exists(_PathText)==true) //eğer path.txt varsa
+            else
+            if (File.Exists(_PathText) == true) //eğer path.txt varsa
             {
                 //bu path'i txtbox'a ata
                 txtboxFolder.Text = File.ReadAllText(_PathText).ToString();
@@ -96,7 +96,7 @@ namespace FileManagerPro.App
                 else { }
             }
             else { label1.Text = "Bir hata oluştu"; }
-         
+
 
             if (!Directory.Exists(_LogFolder))
             {
@@ -114,8 +114,8 @@ namespace FileManagerPro.App
             DateTime GetDeletingProcessTime = DateTime.Now;
             string LogFileName = GetDeletingProcessDate.ToString("D") + " " + GetDeletingProcessTime.ToString("HH.mm.ss") + ".txt";
             string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
-            File.WriteAllText(_DefaultLogFolder+LogFileName, "Deleting Process Created at " + DateTime.Now + Environment.NewLine);
-         
+            File.WriteAllText(_DefaultLogFolder + LogFileName, "Deleting Process Created at " + DateTime.Now + Environment.NewLine);
+
 
             if (checkBoxShowSubFolderFiles.Checked == true)
             {
@@ -123,7 +123,7 @@ namespace FileManagerPro.App
                 foreach (string _Path in files)
                 {
                     FileInfo file = new FileInfo(_Path);
-                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: "+ file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: "+DateTime.Now+ Environment.NewLine);
+                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
                 }
             }
             else
@@ -145,7 +145,7 @@ namespace FileManagerPro.App
             DateTime LogFileHourMin = DateTime.Now;
             //save log path
             string logfilename = LogFileDate.ToString("D") + " " + LogFileHourMin.ToString("HH.mm.ss") + ".txt";
-            File.WriteAllText(_MertKaplanFileManagerFolder+@"\Logs\" + logfilename, "Files Log Created At " + DateTime.Now + Environment.NewLine);
+            File.WriteAllText(_MertKaplanFileManagerFolder + @"\Logs\" + logfilename, "Files Log Created At " + DateTime.Now + Environment.NewLine);
             foreach (string _Path in files)
             {
                 FileInfo file = new FileInfo(_Path);
@@ -153,7 +153,7 @@ namespace FileManagerPro.App
             }
         }
 
-    private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             txtEnterFileTypeForList.Text = ".txt";
             txtBoxDestination.Text = @"C:\Users\Unknown\Desktop\testfolder\tasinacakfolder\";
@@ -166,10 +166,10 @@ namespace FileManagerPro.App
             fillDetailsFromTextBox(getPathFromTextBox());
             getFolders();
             getFolderFiles();
-            
+
         }
 
-      
+
 
         //old functions before v4  ///
         string getPathFromTextBox()
@@ -281,22 +281,23 @@ namespace FileManagerPro.App
         private void btnDeleteSelectedItem_Click(object sender, EventArgs e)
         {
             //Sil ve sonra listele
-        
-                if (checkIsSelectedAFile() == true) { 
-            string beforeDeletingFolder = Path.GetDirectoryName(getPathFromTextBox());
-            File.Delete(getPathFromTextBox());
-            listBoxDirectoryFiles.Items.Clear();
-            fillDetailsBySelected(beforeDeletingFolder);
-            getFolders();
-            getFolderFiles();
-                }
-                else
-                {
-                    label1.Text = "Lütfen bir dosya seçiniz.";
-                }
-         }
-            
-      
+
+            if (checkIsSelectedAFile() == true)
+            {
+                string beforeDeletingFolder = Path.GetDirectoryName(getPathFromTextBox());
+                File.Delete(getPathFromTextBox());
+                listBoxDirectoryFiles.Items.Clear();
+                fillDetailsBySelected(beforeDeletingFolder);
+                getFolders();
+                getFolderFiles();
+            }
+            else
+            {
+                label1.Text = "Lütfen bir dosya seçiniz.";
+            }
+        }
+
+
 
         private void btnDeleteSelectedFolder_Click(object sender, EventArgs e)
         {
@@ -304,25 +305,26 @@ namespace FileManagerPro.App
             if (checkPathExit() == true)
             {
                 try
-            {
-                    
-                 DirectoryInfo _DirectoryInfo = new DirectoryInfo(getPathFromTextBox());
+                {
+
+                    DirectoryInfo _DirectoryInfo = new DirectoryInfo(getPathFromTextBox());
                     if (checkIsSelectedAFolder() == true)
-                    { _DirectoryInfo.Delete();
+                    {
+                        _DirectoryInfo.Delete();
                         label1.Text = "Silinme başarılı";
                     }
                     else
                         label1.Text = "Lütfen bir folder seçiniz.";
-            }
+                }
 
-            catch (IOException)
-            {
-                Directory.Delete(getPathFromTextBox(), true);
-            }
-            catch (UnauthorizedAccessException)
-            {
-                Directory.Delete(getPathFromTextBox(), true);
-            }
+                catch (IOException)
+                {
+                    Directory.Delete(getPathFromTextBox(), true);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Directory.Delete(getPathFromTextBox(), true);
+                }
             }
             else { label1.Text = "Lütfen bir folder seçiniz"; }
             txtboxFolder.Text = beforeDeletingFolder;
@@ -443,19 +445,19 @@ namespace FileManagerPro.App
 
         void GetUserEnteredParameters()
         {
-            
+
             string path = getPathFromTextBox();
             if (path == null)
             { path = @"C:\\"; }
-            else 
-                
+            else
+
             {
                 DateTime _UserSelectedDate = datePicker.Value;
                 int _Hour = Convert.ToInt32(txtHourEntered.Text);
                 int _Time = Convert.ToInt32(txtMinEntered.Text);
                 TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
                 DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
-                string UserEnteredFileType = "*"+ txtEnterFileTypeForList.Text;
+                string UserEnteredFileType = "*" + txtEnterFileTypeForList.Text;
                 if (checkBoxShowSubFolderFiles.Checked == false)
                 {
                     string[] files = Directory.GetFiles(path, UserEnteredFileType);
@@ -475,21 +477,21 @@ namespace FileManagerPro.App
                 }
                 else
                 {
-                    string[] files = Directory.GetFiles(path, UserEnteredFileType, SearchOption.AllDirectories); 
+                    string[] files = Directory.GetFiles(path, UserEnteredFileType, SearchOption.AllDirectories);
                     foreach (string _Path in files)
                     {
-                    FileInfo file = new FileInfo(_Path);
-                    if(file.CreationTime<_AfterTimeSpan)
-                    {
-                        File.Delete(_Path);
+                        FileInfo file = new FileInfo(_Path);
+                        if (file.CreationTime < _AfterTimeSpan)
+                        {
+                            File.Delete(_Path);
+                        }
+                        else
+                        {
+                            label12.Text = "Silinecek Dosya Bulunamadı.";
+                        }
                     }
-                    else
-                    {
-                        label12.Text = "Silinecek Dosya Bulunamadı.";
-                    }
-                    }
-                listBoxParameters.Items.AddRange(files);
-            }
+                    listBoxParameters.Items.AddRange(files);
+                }
             }
         }
         void ShowRequestedFiles(DateTime EnteredDate, int EnteredHour, int EnteredMin, string enteredType)
@@ -500,14 +502,14 @@ namespace FileManagerPro.App
                 TimeSpan _TimeSpan = new TimeSpan(EnteredHour, EnteredMin, 0);
                 DateTime DeleteFileIfOldThenThis = EnteredDate.Date + _TimeSpan;
 
-                label12.Text = "Aşağıdaki gördüğünüz dosyaların\nKlasörü: "+ getPathFromTextBox() + " 'dedir\nUzantısı: " + enteredType + " olan tüm dosyalardır\n" + DeleteFileIfOldThenThis.ToString() + "'dan eskidir:";
+                label12.Text = "Aşağıdaki gördüğünüz dosyaların\nKlasörü: " + getPathFromTextBox() + " 'dedir\nUzantısı: " + enteredType + " olan tüm dosyalardır\n" + DeleteFileIfOldThenThis.ToString() + "'dan eskidir:";
                 string txtboxpath = getPathFromTextBox();
 
-                string[] selectedFilesList= Directory.GetFiles(txtboxpath, "*"+txtEnterFileTypeForList.Text);
+                string[] selectedFilesList = Directory.GetFiles(txtboxpath, "*" + txtEnterFileTypeForList.Text);
                 foreach (string _Path in selectedFilesList)
                 {
                     FileInfo file = new FileInfo(_Path);
-                    if(file.CreationTime<DeleteFileIfOldThenThis)
+                    if (file.CreationTime < DeleteFileIfOldThenThis)
                     {
                         listBoxParameters.Items.Add(_Path);
                     }
@@ -529,54 +531,54 @@ namespace FileManagerPro.App
         void ShowRequestedFilesAndSubFolderFiles(DateTime EnteredDate, int EnteredHour, int EnteredMin, string enteredType)
         {
             listBoxParameters.Items.Clear();
-            if (txtboxFileType.Text==null)
+            if (txtboxFileType.Text == null)
             {
                 label1.Text = "Lutfen bir file tipi giriniz";
             }
             else
-            { 
-            if (EnteredHour < 24 && EnteredMin < 60)
             {
-                TimeSpan _TimeSpan = new TimeSpan(EnteredHour, EnteredMin, 0);
-                DateTime DeleteFileIfOldThenThis = EnteredDate.Date + _TimeSpan;
-                label12.Text = "Aşağıdaki gördüğünüz dosyaların\nKlasörleri: " + getPathFromTextBox() + " ve alt klasörlerindedir.\nUzantısı: " + enteredType + " olan tüm dosyalardır\n" + DeleteFileIfOldThenThis.ToString() + "'dan eskidir:";
-                string txtboxpath = getPathFromTextBox();
-
-                string[] selectedFilesList = Directory.GetFiles(txtboxpath, "*" + txtEnterFileTypeForList.Text, SearchOption.AllDirectories);
-                foreach (string _Path in selectedFilesList)
+                if (EnteredHour < 24 && EnteredMin < 60)
                 {
-                    FileInfo file = new FileInfo(_Path);
-                    if (file.CreationTime < DeleteFileIfOldThenThis)
+                    TimeSpan _TimeSpan = new TimeSpan(EnteredHour, EnteredMin, 0);
+                    DateTime DeleteFileIfOldThenThis = EnteredDate.Date + _TimeSpan;
+                    label12.Text = "Aşağıdaki gördüğünüz dosyaların\nKlasörleri: " + getPathFromTextBox() + " ve alt klasörlerindedir.\nUzantısı: " + enteredType + " olan tüm dosyalardır\n" + DeleteFileIfOldThenThis.ToString() + "'dan eskidir:";
+                    string txtboxpath = getPathFromTextBox();
+
+                    string[] selectedFilesList = Directory.GetFiles(txtboxpath, "*" + txtEnterFileTypeForList.Text, SearchOption.AllDirectories);
+                    foreach (string _Path in selectedFilesList)
                     {
-                        listBoxParameters.Items.Add(_Path);
+                        FileInfo file = new FileInfo(_Path);
+                        if (file.CreationTime < DeleteFileIfOldThenThis)
+                        {
+                            listBoxParameters.Items.Add(_Path);
+                        }
                     }
+
+
+
+
+                    //string[] files = Directory.GetFiles(getPathFromTextBox(), "*" + enteredType);
+                    //listBoxParameters.Items.Clear();
+                    //listBoxParameters.Items.AddRange(files);
                 }
-
-
-
-
-                //string[] files = Directory.GetFiles(getPathFromTextBox(), "*" + enteredType);
-                //listBoxParameters.Items.Clear();
-                //listBoxParameters.Items.AddRange(files);
+                else
+                {
+                    label12.Text = "Girdiğiniz saati kontrol edin.";
+                }
             }
-            else
-            {
-                label12.Text = "Girdiğiniz saati kontrol edin.";
-            }
-        }
         }
 
 
         private void datePicker_ValueChanged(object sender, EventArgs e)
         {
-            if(checkIsSelectedAFile()==true)
+            if (checkIsSelectedAFile() == true)
             {
                 label12.Text = "Bir dosya seçtiniz. Lütfen bir folder seçiniz.";
                 listBoxParameters.Items.Clear();
             }
             else
-            { 
-            DateTime UserSelectedDate = datePicker.Value;
+            {
+                DateTime UserSelectedDate = datePicker.Value;
                 if (checkBoxShowSubFolderFiles.Checked == false)
                 {
                     if (IsNumeric(txtHourEntered.Text) == true && IsNumeric(txtMinEntered.Text) == true)
@@ -586,12 +588,12 @@ namespace FileManagerPro.App
                 }
                 else
                 {
-                    if(checkBoxShowSubFolderFiles.Checked==true)
-                    { 
-                    if (IsNumeric(txtHourEntered.Text) == true && IsNumeric(txtMinEntered.Text) == true)
-                        ShowRequestedFilesAndSubFolderFiles(UserSelectedDate, Convert.ToInt32(txtHourEntered.Text), Convert.ToInt32(txtMinEntered.Text), txtEnterFileTypeForList.Text);
-                    else
-                        label1.Text = "Saate karakter girdiniz. Lütfen nümerik bir değer girin.";
+                    if (checkBoxShowSubFolderFiles.Checked == true)
+                    {
+                        if (IsNumeric(txtHourEntered.Text) == true && IsNumeric(txtMinEntered.Text) == true)
+                            ShowRequestedFilesAndSubFolderFiles(UserSelectedDate, Convert.ToInt32(txtHourEntered.Text), Convert.ToInt32(txtMinEntered.Text), txtEnterFileTypeForList.Text);
+                        else
+                            label1.Text = "Saate karakter girdiniz. Lütfen nümerik bir değer girin.";
                     }
                 }
             }
@@ -610,7 +612,7 @@ namespace FileManagerPro.App
         bool checkIsSelectedAFolder()
         {
             DirectoryInfo _DirectoryInfo = new DirectoryInfo(getPathFromTextBox());
-            if(_DirectoryInfo.Exists)
+            if (_DirectoryInfo.Exists)
             {
                 return true;
             }
@@ -619,7 +621,6 @@ namespace FileManagerPro.App
                 return false;
             }
         }
-
 
         private void deleteBeforeThisDateBtn_Click(object sender, EventArgs e)
         {
@@ -638,7 +639,8 @@ namespace FileManagerPro.App
             System.Diagnostics.Process.Start("https://mertkaplanblog.wordpress.com");
         }
 
-        private void btnCopyListedFiles_Click(object sender, EventArgs e)
+
+        void MyCopyFunction()
         {
             DateTime _UserSelectedDate = datePicker.Value;
             int _Hour = Convert.ToInt32(txtHourEntered.Text);
@@ -646,48 +648,57 @@ namespace FileManagerPro.App
             TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
             DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
             string UserEnteredFileType = "*" + txtEnterFileTypeForList.Text;
-            if (txtBoxDestination.Text==null)
+            if (txtBoxDestination.Text == null)
             {
                 label1.Text = "Lütfen bir destination path'i giriniz!";
             }
             else
-                { 
-                   if(Directory.Exists(txtBoxDestination.Text)==false)
-                    {
+            {
+                if (Directory.Exists(txtBoxDestination.Text) == false)
+                {
                     Directory.CreateDirectory(txtBoxDestination.Text);
-                    }
-                   else
-                     { 
-                        if (checkBoxShowSubFolderFiles.Checked==true)
+                }
+                else
+                {
+                    if (checkBoxShowSubFolderFiles.Checked == true)
+                    {
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType, SearchOption.AllDirectories);
+                        foreach (string _Path in files)
                         {
-                          string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType, SearchOption.AllDirectories);
-                          foreach(string _Path in files)
-                            {
                             FileInfo file = new FileInfo(_Path);
-                             if (file.CreationTime < _AfterTimeSpan)
-                             { file.CopyTo(txtBoxDestination.Text + @"\" + file.Name); }
-                             else { }
-                            }
+                            if (file.CreationTime < _AfterTimeSpan)
+                            { file.CopyTo(txtBoxDestination.Text + @"\" + file.Name); }
+                            else { }
                         }
-                        else
+                    }
+                    else
+                    {
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType);
+                        foreach (string _Path in files)
                         {
-                          string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType);
-                          foreach(string _Path in files)
-                          {
-                              FileInfo file = new FileInfo(_Path);
-                              if(file.CreationTime<_AfterTimeSpan)
-                               {
-                                    file.CopyTo(txtBoxDestination.Text + @"\" + file.Name);
-                               }
-                             else
-                                {
-                           }
-                       }
+                            FileInfo file = new FileInfo(_Path);
+                            if (file.CreationTime < _AfterTimeSpan)
+                            {
+                                file.CopyTo(txtBoxDestination.Text + @"\" + file.Name);
+                            }
+                            else
+                            { }
+
+                        }
                     }
                 }
             }
         }
+        private void btnCopyListedFiles_Click(object sender, EventArgs e)
+        {
+            MyCopyFunction();
+        }
+
         private void btnMoveListedFiles_Click(object sender, EventArgs e)
+        {
+            MyMoveFunction();
+        }
+        void MyMoveFunction()
         {
             if (txtBoxDestination.Text == null)
             {
@@ -695,23 +706,23 @@ namespace FileManagerPro.App
             }
             else
             {
-                if(!Directory.Exists(txtBoxDestination.Text))
+                if (!Directory.Exists(txtBoxDestination.Text))
                 {
                     Directory.CreateDirectory(txtBoxDestination.Text);
 
                 }
                 else
                 {
-             
+
                     DateTime _UserSelectedDate = datePicker.Value;
                     int _Hour = Convert.ToInt32(txtHourEntered.Text);
                     int _Time = Convert.ToInt32(txtMinEntered.Text);
                     TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
                     DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
                     string UserEnteredFileType = "*" + txtEnterFileTypeForList.Text;
-                    if (checkBoxShowSubFolderFiles.Checked==true)
+                    if (checkBoxShowSubFolderFiles.Checked == true)
                     {
-                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType,SearchOption.AllDirectories);
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType, SearchOption.AllDirectories);
                         foreach (string _Path in files)
                         {
                             FileInfo file = new FileInfo(_Path);
@@ -741,7 +752,124 @@ namespace FileManagerPro.App
                     }
                 }
             }
-            
         }
+
+
+
+
+        void CreateAndCheckTempFolder()
+        {
+            if (txtBoxDestination.Text == null)
+            {
+                label1.Text = "Lutfen bir path giriniz.";
+            }
+
+
+            if (!Directory.Exists(txtBoxDestination.Text))
+            {
+                Directory.CreateDirectory(txtBoxDestination.Text);
+                Directory.CreateDirectory(txtBoxDestination.Text + @"\tempfolder\");
+            }
+
+            if (Directory.Exists(txtBoxDestination.Text) == true && Directory.Exists(txtBoxDestination.Text + @"\tempfolder\") == false)
+            {
+                Directory.CreateDirectory(txtBoxDestination.Text + @"\tempfolder\");
+            }
+        }
+
+
+        private void bntCompressListedFiles_Click(object sender, EventArgs e)
+        {
+                         CreateAndCheckTempFolder();
+                         DateTime _UserSelectedDate = datePicker.Value;
+                    int _Hour = Convert.ToInt32(txtHourEntered.Text);
+                    int _Time = Convert.ToInt32(txtMinEntered.Text);
+                    TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
+                    DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
+                    string UserEnteredFileType = "*" + txtEnterFileTypeForList.Text;
+                    if (checkBoxShowSubFolderFiles.Checked == true)
+                    {
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType, SearchOption.AllDirectories);
+                        foreach (string _Path in files)
+                        {
+                            FileInfo file = new FileInfo(_Path);
+                            if (file.CreationTime < _AfterTimeSpan)
+                            {
+                                file.CopyTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
+                            }
+                            else
+                            {
+                            }
+                        }
+                    }
+                    else
+                    {
+                        string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType);
+                        foreach (string _Path in files)
+                        {
+                            FileInfo file = new FileInfo(_Path);
+                            if (file.CreationTime < _AfterTimeSpan)
+                            {
+                                file.CopyTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
+                            }
+                            else
+                            {
+                            }
+                        }
+                    }
+                }
+      
+
+
+  
+
+
+        private void btnCompressAndDeleteListedFiles_Click(object sender, EventArgs e)
+        {
+            CreateAndCheckTempFolder();
+            DateTime _UserSelectedDate = datePicker.Value;
+            int _Hour = Convert.ToInt32(txtHourEntered.Text);
+            int _Time = Convert.ToInt32(txtMinEntered.Text);
+            TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
+            DateTime _AfterTimeSpan = _UserSelectedDate.Date + _TimeSpan;
+            string UserEnteredFileType = "*" + txtEnterFileTypeForList.Text;
+            if (checkBoxShowSubFolderFiles.Checked == true)
+            {
+                string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType, SearchOption.AllDirectories);
+                foreach (string _Path in files)
+                {
+                    FileInfo file = new FileInfo(_Path);
+                    if (file.CreationTime < _AfterTimeSpan)
+                    {
+                        file.MoveTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
+                    }
+                }
+            }
+            else
+            {
+                string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType);
+                foreach (string _Path in files)
+                {
+                    FileInfo file = new FileInfo(_Path);
+                    if (file.CreationTime < _AfterTimeSpan)
+                    {
+                        file.MoveTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
     }
 }
+
+
+
+    
+  
+ 

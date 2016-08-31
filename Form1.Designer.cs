@@ -68,6 +68,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btnMoveListedFiles = new System.Windows.Forms.Button();
             this.btnCopyListedFiles = new System.Windows.Forms.Button();
+            this.bntCompressListedFiles = new System.Windows.Forms.Button();
+            this.btnCompressAndDeleteListedFiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtMinEntered
@@ -427,7 +429,7 @@
             // 
             this.txtBoxDestination.Location = new System.Drawing.Point(703, 422);
             this.txtBoxDestination.Name = "txtBoxDestination";
-            this.txtBoxDestination.Size = new System.Drawing.Size(211, 20);
+            this.txtBoxDestination.Size = new System.Drawing.Size(562, 20);
             this.txtBoxDestination.TabIndex = 70;
             // 
             // label13
@@ -460,6 +462,26 @@
             this.btnCopyListedFiles.UseVisualStyleBackColor = true;
             this.btnCopyListedFiles.Click += new System.EventHandler(this.btnCopyListedFiles_Click);
             // 
+            // bntCompressListedFiles
+            // 
+            this.bntCompressListedFiles.Location = new System.Drawing.Point(704, 666);
+            this.bntCompressListedFiles.Name = "bntCompressListedFiles";
+            this.bntCompressListedFiles.Size = new System.Drawing.Size(109, 39);
+            this.bntCompressListedFiles.TabIndex = 74;
+            this.bntCompressListedFiles.Text = "Hedef Klasöre Ziple";
+            this.bntCompressListedFiles.UseVisualStyleBackColor = true;
+            this.bntCompressListedFiles.Click += new System.EventHandler(this.bntCompressListedFiles_Click);
+            // 
+            // btnCompressAndDeleteListedFiles
+            // 
+            this.btnCompressAndDeleteListedFiles.Location = new System.Drawing.Point(819, 667);
+            this.btnCompressAndDeleteListedFiles.Name = "btnCompressAndDeleteListedFiles";
+            this.btnCompressAndDeleteListedFiles.Size = new System.Drawing.Size(109, 39);
+            this.btnCompressAndDeleteListedFiles.TabIndex = 75;
+            this.btnCompressAndDeleteListedFiles.Text = "Klasöre Ziple ve Sil";
+            this.btnCompressAndDeleteListedFiles.UseVisualStyleBackColor = true;
+            this.btnCompressAndDeleteListedFiles.Click += new System.EventHandler(this.btnCompressAndDeleteListedFiles_Click);
+            // 
             // MertKaplanFileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,6 +490,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1354, 721);
+            this.Controls.Add(this.btnCompressAndDeleteListedFiles);
+            this.Controls.Add(this.bntCompressListedFiles);
             this.Controls.Add(this.btnCopyListedFiles);
             this.Controls.Add(this.btnMoveListedFiles);
             this.Controls.Add(this.label13);
@@ -564,6 +588,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnMoveListedFiles;
         private System.Windows.Forms.Button btnCopyListedFiles;
+        private System.Windows.Forms.Button bntCompressListedFiles;
+        private System.Windows.Forms.Button btnCompressAndDeleteListedFiles;
     }
 }
 
