@@ -780,8 +780,9 @@ namespace FileManagerPro.App
 
         private void bntCompressListedFiles_Click(object sender, EventArgs e)
         {
-                         CreateAndCheckTempFolder();
-                         DateTime _UserSelectedDate = datePicker.Value;
+                    string ZipFileName = ReturnZipFileName();
+                    CreateAndCheckTempFolder();
+                    DateTime _UserSelectedDate = datePicker.Value;
                     int _Hour = Convert.ToInt32(txtHourEntered.Text);
                     int _Time = Convert.ToInt32(txtMinEntered.Text);
                     TimeSpan _TimeSpan = new TimeSpan(_Hour, _Time, 0);
@@ -797,11 +798,21 @@ namespace FileManagerPro.App
                             {
                                 file.CopyTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
                             }
-                            else
-                            {
-                            }
                         }
-                    }
+                ZipFile.CreateFromDirectory(txtBoxDestination.Text + @"\tempfolder\", txtBoxDestination.Text + @"\" +ZipFileName +"zipped without deleting with subfolders.zip");
+
+                try { Directory.Delete(txtBoxDestination.Text + @"\tempfolder\"); }
+                catch (IOException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
+                }
+
+
+            }
                     else
                     {
                         string[] files = Directory.GetFiles(txtboxFolder.Text, UserEnteredFileType);
@@ -812,20 +823,24 @@ namespace FileManagerPro.App
                             {
                                 file.CopyTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
                             }
-                            else
-                            {
-                            }
                         }
-                    }
+                ZipFile.CreateFromDirectory(txtBoxDestination.Text + @"\tempfolder\", txtBoxDestination.Text + @"\" + ZipFileName + "zipped without deleting without subfolders.zip");
+
+                try { Directory.Delete(txtBoxDestination.Text + @"\tempfolder\"); }
+                catch (IOException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
                 }
-      
-
-
-  
-
+                catch (UnauthorizedAccessException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
+                }
+            }
+                }
 
         private void btnCompressAndDeleteListedFiles_Click(object sender, EventArgs e)
         {
+            string ZipFileName = ReturnZipFileName();
             CreateAndCheckTempFolder();
             DateTime _UserSelectedDate = datePicker.Value;
             int _Hour = Convert.ToInt32(txtHourEntered.Text);
@@ -844,6 +859,17 @@ namespace FileManagerPro.App
                         file.MoveTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
                     }
                 }
+                ZipFile.CreateFromDirectory(txtBoxDestination.Text + @"\tempfolder\", txtBoxDestination.Text + @"\" + ZipFileName + "zipped with deleting with subfolders.zip");
+
+                try { Directory.Delete(txtBoxDestination.Text + @"\tempfolder\"); }
+                catch (IOException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
+                }
             }
             else
             {
@@ -856,13 +882,29 @@ namespace FileManagerPro.App
                         file.MoveTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
                     }
                 }
+                ZipFile.CreateFromDirectory(txtBoxDestination.Text + @"\tempfolder\", txtBoxDestination.Text + @"\" + ZipFileName + "zipped with deleting without subfolders.zip");
+
+                try { Directory.Delete(txtBoxDestination.Text + @"\tempfolder\"); }
+                catch (IOException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    Directory.Delete(txtBoxDestination.Text + @"\tempfolder\", true);
+                }
             }
         }
 
 
 
-
-
+        public string ReturnZipFileName()
+        {
+            DateTime GetDeletingProcessDate = DateTime.Now.Date;
+            DateTime GetDeletingProcessTime = DateTime.Now;
+            string LogFileName = GetDeletingProcessDate.ToString("D") + " " + GetDeletingProcessTime.ToString("HH.mm.ss") + " ";
+            return LogFileName;
+        }
 
 
     }
