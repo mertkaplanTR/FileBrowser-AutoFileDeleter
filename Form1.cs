@@ -52,7 +52,6 @@ namespace FileManagerPro.App
             ///User'in girilen path'e göre klasör oluşturması eklenecek...
         }
 
-
         void CheckFolderCreated()
         {
             string _ProgramFilesPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -105,36 +104,6 @@ namespace FileManagerPro.App
             }
             else
             { }
-        }
-
-        void InitializeAllGoingToDeleteFiles()
-        {
-            string _GoingToDeletePath = txtboxFolder.Text;
-            DateTime GetDeletingProcessDate = DateTime.Now.Date;
-            DateTime GetDeletingProcessTime = DateTime.Now;
-            string LogFileName = GetDeletingProcessDate.ToString("D") + " " + GetDeletingProcessTime.ToString("HH.mm.ss") + ".txt";
-            string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
-            File.WriteAllText(_DefaultLogFolder + LogFileName, "Deleting Process Created at " + DateTime.Now + Environment.NewLine);
-
-
-            if (checkBoxShowSubFolderFiles.Checked == true)
-            {
-                string[] files = Directory.GetFiles(txtboxFolder.Text, "*" + txtboxFileType.Text, SearchOption.AllDirectories);
-                foreach (string _Path in files)
-                {
-                    FileInfo file = new FileInfo(_Path);
-                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
-                }
-            }
-            else
-            {
-                string[] files = Directory.GetFiles(txtboxFolder.Text, "*" + txtboxFileType.Text);
-                foreach (string _Path in files)
-                {
-                    FileInfo file = new FileInfo(_Path);
-                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
-                }
-            }
         }
 
         void InitializeAllFiles()
@@ -838,8 +807,48 @@ namespace FileManagerPro.App
             }
                 }
 
+        void InitializeAllGoingToDeleteFiles()
+        {
+            string _GoingToDeletePath = txtboxFolder.Text;
+            DateTime GetDeletingProcessDate = DateTime.Now.Date;
+            DateTime GetDeletingProcessTime = DateTime.Now;
+            string LogFileName = GetDeletingProcessDate.ToString("D") + " " + GetDeletingProcessTime.ToString("HH.mm.ss") + ".txt";
+            string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
+            File.WriteAllText(_DefaultLogFolder + LogFileName, "Deleting Process Created at " + DateTime.Now + Environment.NewLine);
+
+
+            if (checkBoxShowSubFolderFiles.Checked == true)
+            {
+                string[] files = Directory.GetFiles(txtboxFolder.Text, "*" + txtboxFileType.Text, SearchOption.AllDirectories);
+                foreach (string _Path in files)
+                {
+                    FileInfo file = new FileInfo(_Path);
+                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
+                }
+            }
+            else
+            {
+                string[] files = Directory.GetFiles(txtboxFolder.Text, "*" + txtboxFileType.Text);
+                foreach (string _Path in files)
+                {
+                    FileInfo file = new FileInfo(_Path);
+                    File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
+                }
+            }
+        }
+
+
+
         private void btnCompressAndDeleteListedFiles_Click(object sender, EventArgs e)
         {
+            CheckDeleteFolder();
+            string _GoingToDeletePath = txtboxFolder.Text;
+            DateTime GetDeletingProcessDate = DateTime.Now.Date;
+            DateTime GetDeletingProcessTime = DateTime.Now;
+            string LogFileName = GetDeletingProcessDate.ToString("D") + " " + GetDeletingProcessTime.ToString("HH.mm.ss") + ".txt";
+            string _DefaultLogFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\MertKaplanFileManagerFolder\Logs\DeleteLogs\";
+            File.WriteAllText(_DefaultLogFolder + LogFileName, "Deleting Process Created at " + DateTime.Now + Environment.NewLine);
+
             string ZipFileName = ReturnZipFileName();
             CreateAndCheckTempFolder();
             DateTime _UserSelectedDate = datePicker.Value;
@@ -857,6 +866,7 @@ namespace FileManagerPro.App
                     if (file.CreationTime < _AfterTimeSpan)
                     {
                         file.MoveTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
+                        File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
                     }
                 }
                 ZipFile.CreateFromDirectory(txtBoxDestination.Text + @"\tempfolder\", txtBoxDestination.Text + @"\" + ZipFileName + "zipped with deleting with subfolders.zip");
@@ -880,6 +890,7 @@ namespace FileManagerPro.App
                     if (file.CreationTime < _AfterTimeSpan)
                     {
                         file.MoveTo(txtBoxDestination.Text + @"\tempfolder\" + file.Name);
+                        File.AppendAllText(_DefaultLogFolder + @"\" + LogFileName, "Silinen Dosyanın Adı: " + file.Name + " " + "Path: " + file.FullName + " " + "Uzantısı: " + file.Extension + " " + "Silinme Saati: " + DateTime.Now + Environment.NewLine);
                     }
                 }
                 ZipFile.CreateFromDirectory(txtBoxDestination.Text + @"\tempfolder\", txtBoxDestination.Text + @"\" + ZipFileName + "zipped with deleting without subfolders.zip");
